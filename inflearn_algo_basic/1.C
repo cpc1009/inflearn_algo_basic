@@ -1,11 +1,9 @@
-/*#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<string.h>
 void main()
 {
 	//freopen("input.txt", "rt", stdin);
-	//freopen("output.txt", "w", stdout);
-	
 	int n, m;
 	int sum=0;
 	scanf("%d %d", &n,&m);
@@ -17,8 +15,9 @@ void main()
 	}
 
 	printf("%d", sum);
-}*/
+}
 
+/*
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<string.h>
@@ -61,4 +60,4 @@ void main()
 		scanf("%d", &temp);
 		isPrime(temp);
 	}
-}
+}*/

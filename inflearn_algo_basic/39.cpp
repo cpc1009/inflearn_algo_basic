@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+/*#define _CRT_SECURE_NO_WARNINGS
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
 #include<stdio.h>
 #include<string.h>
@@ -37,7 +37,7 @@ void main()
 	}
 	for (int i = 1; i <= n1+n2; i++)
 		printf("%d ", result[i]);
-}
+}*/
 
 /*
 #include<stdio.h>
@@ -72,3 +72,4 @@ int main() {
 
 	return 0;
 }*/
+

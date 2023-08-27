@@ -174,6 +174,7 @@ void main()
 }
 */
 
+/*
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<vector>
@@ -230,4 +231,76 @@ int count(int comp, vector<int> arr)
 			sum += arr[i];
 	}
 	return cnt;
+}
+*/
+
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+void b_search(int front, int back, vector<int> arr);
+bool count(int time, vector<int> arr);
+
+int devide,Max=0;
+
+int main()
+{
+	freopen("input.txt", "rt", stdin);
+
+	int n,back=0;
+	cin >> n >> devide;
+
+	vector<int> arr(1);
+
+	int temp;
+
+	for (int i = 1; i <= n; i++)
+	{
+		
+		cin >> temp;
+		back += temp;
+		arr.push_back(temp);
+	}
+		
+	b_search(arr[1],back, arr);
+
+	return 0;
+}
+
+void b_search(int front, int back,vector<int> arr)
+{
+	int time = (front + back) / 2;
+
+	//cout << "f: " << front << "	b: " << back << " t: " << time << endl;
+	
+	if (!(front <= back))
+		cout << Max;
+	else if (count(time, arr) == true)
+		b_search(front, time - 1, arr);
+	else
+		b_search(time + 1, back, arr);
+}
+
+
+bool count(int time, vector<int> arr)
+{
+	int cnt = 1, sum = 0;;
+	for (int i = 1; i < arr.size(); i++)
+	{
+		if (sum + arr[i] <= time)
+			sum += arr[i];
+		else
+		{
+			cnt++;
+			sum = arr[i];
+		}
+	}
+
+	if (cnt > devide)
+		return 0;
+	Max = time;
+	return 1;
 }

@@ -1,17 +1,3 @@
-/*#define _CRT_SECURE_NO_WARNINGS
-#define MAX(a, b) (((a) > (b)) ? (a) : (b))
-#include<stdio.h>
-#include<string.h>
-#include<vector>
-#include<algorithm>
-using namespace std;
-void main()
-{
-	//	freopen("input.txt", "rt", stdin);
-
-
-}
-*/
 /*
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -64,103 +50,76 @@ int main()
 }*/
 /*
 #define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
 
-int main(void)
+void display(int n, vector<int> arr);
+
+int cnt;
+
+int main()
 {
-    int m;
-    printf("Enter the output mode of the multiplication table (1: Odd, 2: Even). ");
-    scanf("%d", &m);
+   // freopen("input.txt", "rt", stdin);
+    
+    int n;
+    cin >> n;
 
-    for (int i = 2; i <= 9; i++)
+    vector<int> arr;
+
+    for (int i = n / 2; i >= 1; i--)
     {
-        if ((i % 2 == 0) && (m == 2))
+        int sum = i;
+        arr.push_back(i);
+        for (int j = i + 1; j <= n; j++)
         {
-            for (int j = 1; j <= 9; j++)
-            {
-                printf("%d X %d = %2d    ", i, j, i * j);
-                if (j % 3 == 0)
-                    printf("\n");
-            }
-            printf("\n");
+            sum += j;
+            arr.push_back(j);
+            if (sum == n)
+                display(n, arr);
+            else if (sum > n)
+                break;
         }
-
-        else if ((i % 2 == 1) && (m == 1))
-        {
-            for (int j = 1; j <= 9; j++)
-            {
-                printf("%2d X %d = %2d    ", i, j, i * j);
-                if (j % 3 == 0)
-                    printf("\n");
-            }
-        }
-       
+        arr.resize(0);
     }
+    cout << cnt;
+    return 0;
+}
 
-}*/
-
-#define _CRT_SECURE_NO_WARNINGS
-/*void main()
+void display(int n, vector<int> arr)
 {
-    for (int i = 0; i < -5; i++)
-        printf("%d\n", i);
-}*/
-
-#include <stdio.h>
-#include <string.h>
-
-int main(void)
-{
-    int cnt = 0, idx[100] = { 0, };
-    char compare[100];
-    char names[13][100] = { "Global Leadership School",
-                           "International Studies, Languages and Literature",
-                           "Management and Economics",
-                           "Law",
-                           "Counseling Psychology and Social Welfare",
-                           "Communication Arts",
-                           "Spatial Environment System Engineering",
-                           "Mechanical and Control Engineering",
-                           "Contents Convergence Design",
-                           "Life Science",
-                           "Computer Science and Electrical Engineering",
-                           "Global Entrepreneurship and ICT",
-                           "Creative Convergence Education" };
-
-    printf("Input >> ");
-    scanf("%s", compare);
-
-    if (strlen(compare) <= 3)
-        printf("Enter more than 2 letters.\n");
-    else
+    for (int i = 0; i < arr.size(); i++)
     {
-        for (int i = 0; i < sizeof(names) / sizeof(names[0]); i++)
-        {
-            for (int j = 0; j < (int)(strlen(names[i]) - strlen(compare) + 1); j++)
-            {
-                if (names[i][j] == compare[0])
-                {
-                    for (int k = 1; j < strlen(compare); k++)
-                    {
-                        if (names[i][j + k] != compare[k])
-                        {
-                            j = j + (k - 1);
-                            break;
-                        }
-                        else if (k == strlen(compare) - 1)
-                        {
-                            idx[cnt] = i;
-                            j = j + k;
-                            cnt++;
-                        }
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < cnt; i++)
-            printf("[%s]\n", names[idx[i]]);
-        printf("%d major found\n", cnt);
+        if (i == arr.size() - 1)
+            cout << arr[i] << " ";
+        else
+            cout << arr[i] << " + ";
     }
+    printf("= %d", n);
+    cnt++;
+    cout << endl;
+}
+*/
 
+#include<stdio.h>
+int main() {
+    freopen("input.txt", "rt", stdin);
+    int a, b = 1, cnt = 0, tmp, i;
+    scanf("%d", &a);
+    tmp = a;
+    a--;
+    while (a > 0) {
+        b++;
+        a = a - b;
+        if (a % b == 0) {
+            for (i = 1; i < b; i++) {
+                printf("%d + ", (a / b) + i);
+            }
+            printf("%d = %d\n", (a / b) + i, tmp);
+            cnt++;
+        }
+    }
+    printf("%d\n", cnt);
     return 0;
 }
