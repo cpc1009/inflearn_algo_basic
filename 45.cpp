@@ -99,7 +99,7 @@ int main()
 	return 0;
 }*/
 
-/*
+
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<queue>
@@ -138,8 +138,9 @@ int main()
 	cout << que.front();
 
 	return 0;
-}*/
+}
 
+/*
 #include <iostream>
 #include <vector>
 
@@ -165,4 +166,4 @@ int main() {
 	std::cout << "The maximum value in the list is: " << max << std::endl;
 
 	return 0;
-}
+}*/
